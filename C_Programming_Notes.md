@@ -138,3 +138,7 @@ printf("%d", p);   // ❌ Wrong: prints address (garbage)
 
 ---
 
+## Remove 1 element in a List
+
+It's not about destroy that element, it still exist in the memory but no longer in your list
+

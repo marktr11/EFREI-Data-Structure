@@ -17,7 +17,6 @@ typedef struct SList { SNode *head; } SList;
 SNode *ds_slit_create_node(int data); // function declaration which return an instance of SNode
                                       // * function declaration which return a pointer to an instance of SNode
 // Session 11-10-25
-
 void ds_slist_init(SList *);
 SList ds_slist_create();
 
@@ -29,14 +28,15 @@ void ds_slist_print(const SList *plist);
 void ds_slist_print_recursive(const SNode *pnode);
 void ds_slist_print_v1(const SList *plist);
 
-int ds_slist_insert_at(SList *list, int index, int value);
 int ds_slist_remove_head(SList *list, int *out);
 int ds_slist_remove_tail(SList *list, int *out); /* O(n) */
 int ds_slist_remove_value(SList *list, int value);
-SNode* ds_slist_find(const SList *list, int value);
-
 void ds_slist_clear(SList *list);
-
+// session 17/10
+SNode* ds_slist_find(const SList *list, int value); // function declaration which return an instance of SNode
+                                                     // * function declaration which return a pointer to an instance of SNode
+SNode *ds_slist_first_rec_fronode(const SNode *start,int value);
+int ds_slist_insert_at(SList *list, int index, int value);
 
 
 

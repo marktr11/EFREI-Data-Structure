@@ -6,6 +6,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
+//int ds_slist_insert_at(SList *plist, int index, int value) CHECK !!!!!
+
+
+
 // Session 11-10-25
 SNode *ds_slit_create_node(int data) { // 1
     SNode *pnode = (SNode *)malloc(sizeof(SNode));
@@ -76,4 +81,56 @@ void ds_slist_print_v1(const SList *plist) {
     printf("[");
     ds_slist_print_recursive(plist->head);
     printf("]\n");
+}
+
+//session 17/10
+SNode* ds_slist_find(const SList *plist, int value) { //why we need to use plist instead of list which is initialized in header
+    // function declaration which return an instance of SNode
+    // * function declaration which return a pointer to an instance of SNode
+    SNode *res = NULL;
+    SNode *cur = plist->head;
+    while (cur && res == NULL) {
+        if (cur->data == value) {
+            res = cur;
+        }
+        cur = cur->next; // ??
+    }
+    return res;
+}
+
+SNode *ds_slist_first_rec_fronode(const SNode *start,int value) {
+    if (start == NULL) return NULL;
+    if (start->data ==value) return start;
+    return ds_slist_first_rec_fronode(start->next,value);
+}
+
+int ds_slist_insert_at(SList *plist, int index, int value) {
+    int ok = 0;
+    if (index == 0) {
+        // Insert at the beginning of the list
+        ok = ds_slist_insert_head(plist, value);
+    }
+    else if (index > 0 && !ds_slist_is_empty(plist)) {
+        // Start from the head node
+        SNode *cur = plist->head;
+        // CHECK DEBUG !!!!!! 17/10
+        printf(cur->next);
+        int i = 0;
+        // Move to the node at position (index - 1)
+        // We need to stop at the node before the insertion point
+        while (cur && i < index - 1) {
+            cur = cur->next; // Move to the next node in each iteration
+            i++;
+        }
+        // If we found a valid position to insert
+        if (cur) {
+            SNode *pnew = ds_slit_create_node(value);
+            // Link the new node to the node that was at the target position
+            pnew->next = cur->next;
+            // Link the previous node to the new node
+            cur->next = pnew;
+            ok = 1;
+        }
+    }
+    return ok;
 }
