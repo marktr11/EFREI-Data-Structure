@@ -8,7 +8,7 @@
 
 typedef struct SNode { int data; struct SNode *next; } SNode; // Snode pointer Snode
 // struct SNode :  define a structure which is called SNode
-// it has 2 elements: int data  and struct SNode *next (which is a pointer to an anotherSNode)
+// it has 2 elements: int data  and struct SNode *next (which is a pointer to an another SNode)
 // typedef structure .... {} allias (typedef create an alias for the structure now called SNode)
 typedef struct SList { SNode *head; } SList; 
 // struct SList :  define a structure which is called SList
@@ -16,6 +16,7 @@ typedef struct SList { SNode *head; } SList;
 
 SNode *ds_slit_create_node(int data); // function declaration which return an instance of SNode
                                       // * function declaration which return a pointer to an instance of SNode
+
 // Session 11-10-25
 void ds_slist_init(SList *);
 SList ds_slist_create();

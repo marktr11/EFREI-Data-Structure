@@ -4,39 +4,50 @@
 #include "Btree.h" // import Btree header
 #include "Slist.h" // import Slist header
 
-// - main_SList()
+// - main() : Linked List
 // - main() : Binary tree
 
 
 
 // Linked List
-// CHECK line 97-98 !!!!
-int main_SList(void) {
-
+// CHECK line 97-98 !!!! 17/10/25
+int main(void) {
+    // Session 11-10-25
     SNode n1;
     n1.data = 10;
     n1.next = NULL;
     printf("n1 : %d\n", n1.data);
-    SNode *n2 = ds_slit_create_node(20); // value at address n2 point to
-                                              // n2 is a pointer
+    SNode *n2 = ds_slit_create_node(20); // value at address n2 point to = 20
+                                              // create a Snode in heap which stores 20 as value and NULL as pointer
+                                              // n2 point the newly created SNode
+    // n2 is a pointer to SNode, so we declare it with *
+    // ds_slit_create_node(20) returns a pointer to SNode
+    // We do NOT put * before the function name (like we declared this function before) because the function
+    // already returns a pointer. The * is only needed when declaring
+    // a pointer variable or dereferencing (access) a pointer.
     // * is a part of type in declaration
+
+
     printf("n2 : %d\n", n2->data);
 
 
 
-    SNode *pnode; // The value at the address that pnode points to is null for now
-    pnode = &n1; // pnode now stores the address of node n1
-                 // *pnode is the value stored at the address pnode points to — i.e., the value of n1
+    SNode *pnode = &n1; // pnode is a pointer to a SNode (not initialized yet)
+                  // *pnode access the value stored at the address pnode points to — i.e., the value of n1
+    // pnode = &n1; // pnode now stores the address of node n1
+
 
     printf("Compare the address stored in pnode with the address of n1: %s\n",(&n1 == pnode) ? "Yes" : "No");
 
-    // Session 11-10-25
-    printf("data du node pointe par pnode est %d\n ", pnode->data);
 
-    SNode *pnode1 = (SNode *) malloc(sizeof(SNode));
+    // Assuming pnode is a pointer to a SNode
+    // The arrow operator (->) is used to access members of the struct that pnode points to
+    printf("Data of the node pointed to by pnode is: %d\n", pnode->data);
+
+    SNode *pnode1 = (SNode *) malloc(sizeof(SNode)); // a pointer to a SNode (not initialized yet)
     pnode1->data = 100;
     pnode1->next = NULL;
-    printf("data du node pointe par pnode1 ess %d\n ", pnode1->data);
+    printf("Data of the node pointed to by pnode1 is: %d\n ", pnode1->data);
 
     printf("----------------------------------JOUER AVEC LES LISTES-----------");
 
@@ -76,14 +87,11 @@ int main_SList(void) {
     printf("\n insert 444 at 9\n");
     ds_slist_insert_at(&L, 9, 444);
 
-
-
-
     return 0;
 }
 
 // Binary Tree
-int main(void) {
+int main_Btree(void) {
     // Binary Tree
     SNode n100;
     n100.data = 14;

@@ -12,12 +12,16 @@
 
 
 // Session 11-10-25
+// Function to create a new node for a singly linked list
 SNode *ds_slit_create_node(int data) { // 1
-    SNode *pnode = (SNode *)malloc(sizeof(SNode));
-    pnode->data = data;
-    pnode->next = NULL;
-    return pnode;
+    SNode *pnode = (SNode *)malloc(sizeof(SNode)); // Allocate memory for a new SNode on heap
+                                                        // Read md documentation for more ...
+    pnode->data = data; // Set the data field of the new node to the given value
+    pnode->next = NULL; // Initialize the next pointer to NULL since this node
+                        // is not linked to any other node yet
+    return pnode; // Return the pointer to the newly created node
 }
+
 
 void ds_slist_init(SList* plist) { //2
     plist->head = NULL;
