@@ -17,4 +17,8 @@ add_executable(LinkedList main.c
         Queue/Queue.c
         Queue/Queue.h
         Trees/AVL/AVL.c
-        Trees/AVL/AVL.h)
+        Trees/AVL/AVL.h
+        )
+
+# Let the CMAKE in project root identify there is another CMAKE in subfolder
+add_subdirectory(Play)

@@ -16,7 +16,11 @@ typedef struct SNode {
 // Structure de la liste simplement chainée
 // Contient uniquement un pointeur vers la tête (premier nœud)
 typedef struct SList {
-    SNode *head;                 // Pointeur vers le premier nœud (NULL si liste vide)
+    SNode *head;        // Pointeur vers le premier nœud (NULL si liste vide)
+
+                        // Pourquoi on peut ecrire juste SNode *head par apport struct SNode *next en haut ?
+                        // C'est simplement parce qu'en ce moment struct SNode a ete compile en SNode via } SNode.
+                        // Generalement, c'est pareil
 } SList;
 
 // Créer un nouveau nœud avec la valeur donnée

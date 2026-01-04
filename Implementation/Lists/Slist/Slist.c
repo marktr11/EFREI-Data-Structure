@@ -22,6 +22,7 @@ SNode *ds_slit_create_node(int data) {
 // Initialiser une liste vide (passer par pointeur)
 // Complexité: O(1)
 void ds_slist_init(SList* plist) {
+    // plist stocke &Slist
     // plist est un pointeur vers SList, on utilise -> pour accéder au champ head
     plist->head = NULL;
 }
